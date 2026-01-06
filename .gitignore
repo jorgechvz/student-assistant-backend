@@ -1,0 +1,21 @@
+.DS_Store
+.env
+__pycache__/
+venv/
+env/
+*.pyc
+.idea/
+.vscode/
+*.egg-info/
+dist/
+build/
+src/__pycache__/
+src/*.pyc
+src/.DS_Store
+logs/
+*.log
+
+# Ignore library dependencies
+node_modules/
+bower_components/
+*.lock
