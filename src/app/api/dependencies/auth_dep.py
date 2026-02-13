@@ -2,7 +2,7 @@
 
 import logging
 from typing import Annotated
-from fastapi import Cookie, Depends, HTTPException, status
+from fastapi import Cookie, Depends, HTTPException, status, Request
 from app.infrastructure.adapters.security.jwt_handler import JWTHandler
 from app.infrastructure.adapters.security.password_hasher import PasswordHasher
 from app.infrastructure.db.repos.user_repo_beanie import UserRepoBeanie
@@ -46,20 +46,30 @@ def get_auth_service(
 
 
 async def get_current_user(
+    request: Request,
     access_token: Annotated[str | None, Cookie()] = None,
     token_service: TokenService = Depends(get_token_service),
     user_repo: UserRepoBeanie = Depends(get_user_repository),
 ) -> UserModel:
     """Get current authenticated user from cookie"""
 
-    if not access_token:
+    token = None
+
+    auth_header = request.headers.get("Authorization")
+    if auth_header and auth_header.startswith("Bearer "):
+        token = auth_header.split(" ")[1]
+
+    if not token:
+        token = request.cookies.get("access_token")
+
+    if not token:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Not authenticated - No token provided",
         )
 
     try:
-        user_id = await token_service.verify_access_token(access_token)
+        user_id = await token_service.verify_access_token(token)
 
         if not user_id:
             raise HTTPException(
@@ -74,6 +84,8 @@ async def get_current_user(
             )
 
         return user
+    except HTTPException:
+        raise
     except Exception as e:
         _logger.warning("Authentication failed: %s", e)
         raise HTTPException(

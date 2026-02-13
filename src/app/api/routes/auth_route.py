@@ -125,6 +125,18 @@ async def get_me(current_user: Annotated[UserModel, Depends(get_current_user)]):
     )
 
 
+@router.get("/token")
+async def get_token(
+    current_user: Annotated[UserModel, Depends(get_current_user)],
+    request: Request,
+):
+    """Return access token from cookie for streaming auth."""
+    token = request.cookies.get("access_token")
+    if not token:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    return {"access_token": token}
+
+
 def _set_auth_cookies(response: Response, access_token: str, refresh_token: str):
     """Helper to set authentication cookies"""
     # Access token cookie
