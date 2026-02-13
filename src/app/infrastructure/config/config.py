@@ -1,9 +1,10 @@
 """Configuration module for the application settings."""
 
+from typing import Optional
 from functools import lru_cache
 from typing import Literal
 from pydantic_settings import BaseSettings
-from pydantic import Field
+from pydantic import Field, field_validator
 
 
 class Settings(BaseSettings):
@@ -45,7 +46,7 @@ class Settings(BaseSettings):
     cookie_samesite: Literal["lax", "strict", "none"] = Field(
         default="lax", alias="COOKIE_SAMESITE"
     )
-    cookie_domain: str | None = Field(default=None, alias="COOKIE_DOMAIN")
+    cookie_domain: Optional[str] = Field(default=None, alias="COOKIE_DOMAIN")
     cors_origins: list[str] = Field(
         default=["http://localhost:5173"], alias="CORS_ORIGINS"
     )
@@ -59,6 +60,25 @@ class Settings(BaseSettings):
     google_client_secret: str = Field(..., alias="GOOGLE_CLIENT_SECRET")
     google_redirect_uri: str = Field(..., alias="GOOGLE_REDIRECT_URI")
     frontend_google_success_url: str = Field(..., alias="FRONTEND_GOOGLE_SUCCESS_URL")
+
+    @field_validator("cookie_domain", mode="before")
+    @classmethod
+    def empty_string_to_none(cls, v):
+        """Convert empty string to None for cookie_domain."""
+        if v == "" or v is None:
+            return None
+        return v
+
+    @field_validator("cors_origins", mode="before")
+    @classmethod
+    def parse_cors_origins(cls, v):
+        """Parse CORS origins from JSON string or list."""
+        if isinstance(v, str):
+            import json
+
+            return json.loads(v)
+        return v
+
     model_config = {
         "case_sensitive": True,
         "env_file": ".env",
