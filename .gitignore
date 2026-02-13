@@ -14,8 +14,15 @@ src/*.pyc
 src/.DS_Store
 logs/
 *.log
+.flake8
+.coverage
+.pylintrc
+pytest_cache/
 
 # Ignore library dependencies
 node_modules/
 bower_components/
 *.lock
+
+# Ignore Notebooks
+*.ipynb
