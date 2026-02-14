@@ -54,7 +54,7 @@ Documentation describing guardrails, restricted behaviors, and misuse test cases
 - Redirection strategy (Acknowledge → Redirect → Offer Alternatives)
 - Restricted behavior matrix (homework, essays, exams, quizzes, code)
 - Scope boundaries (what the assistant will and won't engage with)
-- 15 predefined misuse test scenarios with expected behaviors
+- 14 predefined misuse test scenarios with expected behaviors
 
 ---
 
@@ -182,20 +182,21 @@ Sample notes stored in Notion demonstrating learning support features.
 
 ### 5. Demo Video or Screenshots of the System in Use
 
-Visual evidence of the assistant's end-to-end functionality.
+A 7–10 minute screen recording with narration demonstrating the assistant's end-to-end functionality. The video follows a structured script organized into seven segments.
 
-**Demo covers:**
+**Video Segments:**
 
-- User registration and login flow
-- Connecting Canvas, Google Calendar, and Notion integrations
-- Chat interaction with streaming responses
-- Course information queries
-- Study session scheduling
-- Note creation in Notion
-- Academic integrity guardrail activation
-- User settings and account management
+| Segment                     | Topic                                                                     | Artifacts Covered    |
+| --------------------------- | ------------------------------------------------------------------------- | -------------------- |
+| 1 — Introduction            | App overview and deployment context                                       | Artifact 9           |
+| 2 — Process Artifacts       | Requirements, architecture diagrams, and ADRs                             | Artifacts 1, 2, 5, 6 |
+| 3 — Canvas Integration      | Course queries, assignments, and grades with streaming responses          | Artifact 5           |
+| 4 — Calendar Integration    | Study session scheduling and multi-day study plans                        | Artifacts 5, 7       |
+| 5 — Notion Integration      | Study note creation and assignment trackers                               | Artifacts 5, 8       |
+| 6 — Academic Integrity      | Guardrail activation on prohibited requests (essay writing, quiz answers) | Artifacts 3, 5       |
+| 7 — Evaluation & Conclusion | Test results summary, evidence screenshots, and project overview          | Artifacts 4, 6, 9    |
 
-**Location:** Video recording and screenshots in [evidence/](evidence/) folder.
+**All 9 proposal artifacts are covered across the video segments.**
 
 ---
 
@@ -221,15 +222,15 @@ A modern single-page application providing the user interface for Loop.
 
 ## Artifact Checklist
 
-| #   | Artifact                      | Type    | Status                    |
-| --- | ----------------------------- | ------- | ------------------------- |
-| 1   | Requirements & Scope          | Process | ✅ Complete — [requirements.md](requirements.md) |
-| 2   | Architecture & Diagrams       | Process | ✅ Complete — [architecture.md](architecture.md) |
-| 3   | Academic Integrity Guidelines | Process | ✅ Complete — [academic-integrity.md](academic-integrity.md) |
-| 4   | Evaluation Plan & Test Cases  | Process | ✅ Complete — [evaluation-plan.md](evaluation-plan.md) |
-| 5   | Architecture Decision Records | Process | ✅ Complete — [adrs/](adrs/README.md) |
-| 6   | Working Prototype             | Final   | ✅ Complete — Live on Netlify + Render |
+| #   | Artifact                      | Type    | Status                                                                                                                |
+| --- | ----------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------- |
+| 1   | Requirements & Scope          | Process | ✅ Complete — [requirements.md](requirements.md)                                                                      |
+| 2   | Architecture & Diagrams       | Process | ✅ Complete — [architecture.md](architecture.md)                                                                      |
+| 3   | Academic Integrity Guidelines | Process | ✅ Complete — [academic-integrity.md](academic-integrity.md)                                                          |
+| 4   | Evaluation Plan & Test Cases  | Process | ✅ Complete — [evaluation-plan.md](evaluation-plan.md)                                                                |
+| 5   | Architecture Decision Records | Process | ✅ Complete — [adrs/](adrs/README.md)                                                                                 |
+| 6   | Working Prototype             | Final   | ✅ Complete — Live on Netlify + Render                                                                                |
 | 7   | Source Code + Documentation   | Final   | ✅ Complete — [Backend repo](../README.md) + [Frontend repo](https://github.com/jorgechvz/student-assistant-frontend) |
-| 8   | Calendar Event Examples       | Final   | ✅ Screenshots — [evidence/google-calendar/](evidence/google-calendar/) |
-| 9   | Study Note Examples           | Final   | ✅ Screenshots — [evidence/notion/](evidence/notion/) |
-| 10  | Demo Video / Screenshots      | Final   | ✅ Screenshots — [evidence/](evidence/) + Demo Video |
+| 8   | Calendar Event Examples       | Final   | ✅ Screenshots — [evidence/google-calendar/](evidence/google-calendar/)                                               |
+| 9   | Study Note Examples           | Final   | ✅ Screenshots — [evidence/notion/](evidence/notion/)                                                                 |
+| 10  | Demo Video / Screenshots      | Final   | ✅ Screenshots — [evidence/](evidence/) + Demo Video                                                                  |
