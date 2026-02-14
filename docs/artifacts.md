@@ -215,7 +215,7 @@ A modern single-page application providing the user interface for Loop.
 - Optimistic UI updates and data caching via TanStack Query
 
 **Repository:** [student-assistant-frontend](https://github.com/jorgechvz/student-assistant-frontend)  
-**Deployment:** Vercel (frontend) / Render (backend)
+**Deployment:** Netlify (frontend) / Render (backend)
 
 ---
 
@@ -228,7 +228,7 @@ A modern single-page application providing the user interface for Loop.
 | 3   | Academic Integrity Guidelines | Process | ✅ Complete — [academic-integrity.md](academic-integrity.md) |
 | 4   | Evaluation Plan & Test Cases  | Process | ✅ Complete — [evaluation-plan.md](evaluation-plan.md) |
 | 5   | Architecture Decision Records | Process | ✅ Complete — [adrs/](adrs/README.md) |
-| 6   | Working Prototype             | Final   | ✅ Complete — Live on Vercel + Render |
+| 6   | Working Prototype             | Final   | ✅ Complete — Live on Netlify + Render |
 | 7   | Source Code + Documentation   | Final   | ✅ Complete — [Backend repo](../README.md) + [Frontend repo](https://github.com/jorgechvz/student-assistant-frontend) |
 | 8   | Calendar Event Examples       | Final   | ✅ Screenshots — [evidence/google-calendar/](evidence/google-calendar/) |
 | 9   | Study Note Examples           | Final   | ✅ Screenshots — [evidence/notion/](evidence/notion/) |
