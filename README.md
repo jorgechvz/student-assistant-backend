@@ -234,7 +234,7 @@ The React frontend application lives in a separate repository:
 
 - **Repository:** [student-assistant-frontend](https://github.com/jorgechvz/student-assistant-frontend)
 - **Tech Stack:** React 19, TypeScript, Vite, Tailwind CSS v4, Radix UI, Zustand, TanStack Query
-- **Deployment:** Vercel
+- **Deployment:** Netlify
 
 The backend is deployed on **Render**.
 
